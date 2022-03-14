@@ -1,0 +1,19 @@
+{
+  "name": "project-2-financial-planner",
+  "version": "1.0.0",
+  "description": "A financial planning web application useing the MEN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/b-akbari/Financial-planner.git"
+  },
+  "author": "Basheer Akbari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/b-akbari/Financial-planner/issues"
+  },
+  "homepage": "https://github.com/b-akbari/Financial-planner#readme"
+}

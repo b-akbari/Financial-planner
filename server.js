@@ -48,12 +48,14 @@ app.use(function(req,res,next){
 //import routes
 const indexRoute = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const portfolioRoutes = require('./routes/portfolio');
 const { initialize } = require("./helper/ppConfig");
 
 
 //mount routes
 app.use('/', indexRoute);
 app.use('/', authRoutes);
+app.use('/', portfolioRoutes);
 
 
 

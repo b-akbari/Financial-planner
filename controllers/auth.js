@@ -30,7 +30,7 @@ exports.auth_signup_post = (req,res)=>{
     .catch((err)=>{
         if(err.code==11000){
             req.flash('error','Email already exists');
-            res.redirect('/auth/login')
+            res.redirect('auth/login')
         } else{
             const errors = validationResult(req);
             if(!errors.isEmpty()){
@@ -65,5 +65,5 @@ exports.auth_logout_get = (req,res)=>{
     //will clear the session
     req.logout();//invalidates session
     req.flash('success','Your account has been logged out');
-    res.redirect('/auth/signin');//redirects to login Page
+    res.redirect('/');//redirects to login Page
 }

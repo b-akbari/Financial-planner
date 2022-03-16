@@ -28,8 +28,8 @@ const userSchema = mongoose.Schema({
         required:true,
         minlength:[6,'your password should be atleast 6 characters']
     },
-    wallet:{
-        value:Number,
+    portfolio:{
+        wallet:{type:Number, default:0},
         revenue:[{
             type:mongoose.Schema.Types.ObjectId,
             ref:'Revenue',

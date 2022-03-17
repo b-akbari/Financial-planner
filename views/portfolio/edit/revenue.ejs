@@ -1,0 +1,26 @@
+<h1>
+    Edit Revenue
+</h1>
+
+<form method="post" action="/article/update?_method=PUT">
+
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value="<%= revenue.title %>">
+    </div>
+
+    <div>Monthly In Flow</label>
+        <input type='number' name="monthlyInFlow" value='<%= revenue.monthlyInFlow %>'>
+    </div>
+
+
+    <div>
+        <label>Annual Percent Change</label>
+        <input type="number" name="annualPercentChange" value="<%= revenue.annualPercentChange %>">
+    </div>
+
+    <input type="hidden" name="id" value="<%= revenue._id %>">
+
+    <button type="submit">Edit Revenue</button>
+
+</form>

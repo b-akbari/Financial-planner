@@ -10,20 +10,26 @@ const portfolioCtrl = require("../controllers/portfolio")
 // Routes
 router.get("/portfolio", portfolioCtrl.portfolio_index_get); //get index
 
-    //revenue
-router.get('/portfolio/add/revenue', portfolioCtrl.portfolio_add_revenue_get)//display add revenue form
-router.post('/portfolio/add/revenue',portfolioCtrl.portfolio_add_revenue_post)
+//revenue
+//display form
+router.get('/portfolio/add/revenue', portfolioCtrl.portfolio_add_revenue_get)
+//post info from form to user's revenue array
+router.post('/portfolio/add/revenue',portfolioCtrl.portfolio_add_revenue_post) 
+//delete revenue
+router.delete('/portfolio/delete/revenue/:id', portfolioCtrl.portfolio_revenue_delete) //delete an item from the portfolio
 
-    //expense
-router.get('/portfolio/add/expense', portfolioCtrl.portfolio_add_expense_get)//display add expense form
-router.post('/portfolio/add/expense',portfolioCtrl.portfolio_add_expense_post)
+//expense
+//display expense form
+router.get('/portfolio/add/expense', portfolioCtrl.portfolio_add_expense_get)
+//post expense into user's expense array
+router.post('/portfolio/add/expense',portfolioCtrl.portfolio_add_expense_post)//post the info
+//delete expense
+router.delete('/portfolio/delete/expense/:id', portfolioCtrl.portfolio_expense_delete) //delete an item from the portfolio
 
-    //delete revenue
-router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_revenue_delete) //delete an item from the portfolio
+//get edit form for revenue
+router.get('/portfolio/edit/revenue/',portfolioCtrl.portfolio_revenue_edit_get)
 
-    // //delete expense
-    // router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
-
+// router.put('/portfolio/edit/revenue/:id', portfolioCtrl.portfolio_revenue_update)
 
 // Export to other files
 module.exports = router;

@@ -8,7 +8,7 @@ const {body}=require('express-validator');
 const authCntrl= require('../controllers/auth')
 
 //Routes for Authentication
-router.get("/Auth/signup", authCntrl.auth_signup_get);
+router.get("/auth/signup", authCntrl.auth_signup_get);
 //express authentication
 router.post("/auth/signup", [
     body('firstName').isLength({min:3 ,max:99}).withMessage('first name must be between 3 and 99 characters long'),

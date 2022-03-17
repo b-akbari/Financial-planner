@@ -32,6 +32,24 @@ exports.portfolio_add_revenue_post=async(req,res)=>{
     res.redirect('/portfolio')
 }
 
+//HTTP DELETE - revenue obj
+exports.portfolio_revenue_delete= async(req,res)=>{
+    let user = await User.findById(req.user.id)
+    user.portfolio.revenue=user.portfolio.revenue.filter(revenue=> revenue.id!=req.params.id);
+    user.save();
+    res.redirect('/portfolio')
+}
+
+//HTTP GET - revenue edit form
+exports.portfolio_revenue_edit_get=async(req,res)=>{
+    let user= await User.findById(req.user.id)
+    console.log(user);
+    let revenueObj=user.portfolio.revenue.filter(revenue=>revenue.id=req.params.id)
+    console.log(revenueObj);
+    res.render('portfolio/edit/revenue',{revenue:revenueObj})
+}
+
+
 //expense
 exports.portfolio_add_expense_get=(req,res)=>{
     res.render('portfolio/add/expense')
@@ -40,22 +58,23 @@ exports.portfolio_add_expense_post=async(req,res)=>{
     let user=await User.findById(req.user.id)
      user.portfolio.expense.push(req.body);
      user.save();
-     res.redirect('/portfolio');
+    //  res.redirect('/portfolio');
 }
 
 
-//HTTP DELETE - item
-exports.portfolio_revenue_delete= async(req,res)=>{
+
+
+//HTTP DELETE - expense obj
+exports.portfolio_expense_delete= async(req,res)=>{
     let user = await User.findById(req.user.id)
-    user.portfolio.revenue=user.portfolio.revenue.filter(revenue=> revenue.id!=req.params.id);
+    user.portfolio.expense=user.portfolio.expense.filter(expense=> expense.id!=req.params.id);
     user.save();
     res.redirect('/portfolio')
 }
 
-// //HTTP DELETE - item
-// exports.portfolio_expense_delete= async(req,res)=>{
+//put info into obj
+// exports.portfolio_revenue_update=async(req,res)=>{
 //     let user = await User.findById(req.user.id)
-//     user.portfolio.expense=user.portfolio.expense.filter(expense=> expense.id!=req.params.id);
-//     user.save();
-//     res.redirect('/portfolio')
+//     user.
+
 // }

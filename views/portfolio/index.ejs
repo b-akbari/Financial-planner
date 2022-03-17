@@ -2,7 +2,8 @@
 <a class='btn btn-outline-primary' href='/portfolio/add/expense'>add expense</a>
 
 <h2>revenue</h2>
-<a class="btn btn-secondary" href="/portfolio/edit?id=<%= user.portfolio.revenue[0] %>">Test</a>
+<a class="btn btn-secondary" href="/portfolio/edit/revenue">Test</a>
+
 <table class='table table-striped' class='positive'>
     <tr>
       <th>Title</th>
@@ -23,11 +24,11 @@
         <td> <%= source.annualPercentChange %>% </td>
   
       <td>
-        <a class="btn btn-secondary" href="/portfolio/delete?id=623211e5ab03b6819302a6e7">Edit</a>
+        <a class="btn btn-secondary" href="/portfolio/edit/revenue?id=<%= source.id %>">Edit</a>
       </td>
       
       <td>
-        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
+        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/revenue/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
       </td> 
     </tr>
   
@@ -59,14 +60,17 @@
     <td> <%= source.annualPercentChange %>% </td>
 
     <td>
-    <a class="btn btn-secondary" href="/portfolio/edit?id=<%= source.id %>">Edit</a>
+    <a class="btn btn-secondary" href="/portfolio/edit/expense?id=<%= source.id %>">Edit</a>
     </td>
     
     <td>
-    <a  class="btn btn-danger" href="/portfolio/delete?id=<%= source.id %>">Delete</a>
+        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/expense/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
     </td> 
 </tr>
 
 <% }) %>
 
 </table>
+
+<canvas id="myChart" style="width:100%;max-width:700px">
+</canvas>

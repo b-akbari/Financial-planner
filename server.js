@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
 require('dotenv').config();
 const flash = require('connect-flash');
+const methodOverride= require('method-override')
 
 
 // Port Config
@@ -11,6 +12,8 @@ const PORT = process.env.PORT;
 
 // Initialize Express app
 const app = express();
+
+app.use(methodOverride('_method'));
 
 //see views folder for layout
 app.use(expressLayouts);
@@ -55,6 +58,7 @@ const { initialize } = require("./helper/ppConfig");
 //mount routes
 app.use('/', indexRoute);
 app.use('/', authRoutes);
+// app.all('*', loadUser);
 app.use('/', portfolioRoutes);
 
 

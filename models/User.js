@@ -2,6 +2,19 @@ const mongoose = require('mongoose');
 
 const bcrypt=require('bcrypt');
 
+const revenueSchema = mongoose.Schema({
+    title: String,
+    monthlyInFlow: Number,
+    annualPercentChange:Number //annual percent change
+})
+
+const expenseSchema = mongoose.Schema({
+    title: String,
+    monthlyExpense: Number,
+    annualPercentChange:Number
+})
+
+
 const userSchema = mongoose.Schema({
     firstName:{
         type: String,
@@ -30,14 +43,8 @@ const userSchema = mongoose.Schema({
     },
     portfolio:{
         wallet:{type:Number, default:0},
-        revenue:[{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Revenue',
-        }],
-        expense:[{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Expense',
-        }]
+        revenue:[revenueSchema],
+        expense:[expenseSchema]
 
     }
 

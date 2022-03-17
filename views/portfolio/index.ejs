@@ -1,3 +1,72 @@
 <a class='btn btn-outline-primary' href='/portfolio/add/revenue'>add revenue</a>
 <a class='btn btn-outline-primary' href='/portfolio/add/expense'>add expense</a>
 
+<h2>revenue</h2>
+<a class="btn btn-secondary" href="/portfolio/edit?id=<%= user.portfolio.revenue[0] %>">Test</a>
+<table class='table table-striped' class='positive'>
+    <tr>
+      <th>Title</th>
+      <th>monthly revenue</th>
+      <th>Annual % change</th>
+  
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  
+    <% user.portfolio.revenue.forEach((source,idex)=>{ %>
+    <tr>
+        <td> 
+          <a class="btn btn-outline-dark" >
+          <%= source.title %></a>
+        </td>
+        <td> <%= source.monthlyInFlow %> </td>
+        <td> <%= source.annualPercentChange %>% </td>
+  
+      <td>
+        <a class="btn btn-secondary" href="/portfolio/delete?id=623211e5ab03b6819302a6e7">Edit</a>
+      </td>
+      
+      <td>
+        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
+      </td> 
+    </tr>
+  
+    <% }) %>
+  </table>
+
+
+
+
+
+<h2>Expenses</h2>
+<table class='table table-striped negative'>
+<tr>
+    <th>Title</th>
+    <th>monthly expense</th>
+    <th>Annual % change</th>
+
+    <th>Edit</th>
+    <th>Delete</th>
+</tr>
+
+<% user.portfolio.expense.forEach(function(source) { %>
+<tr>
+    <td> 
+        <a class="btn btn-outline-dark" >
+        <%= source.title %></a>
+    </td>
+    <td> <%= source.monthlyExpense %> </td>
+    <td> <%= source.annualPercentChange %>% </td>
+
+    <td>
+    <a class="btn btn-secondary" href="/portfolio/edit?id=<%= source.id %>">Edit</a>
+    </td>
+    
+    <td>
+    <a  class="btn btn-danger" href="/portfolio/delete?id=<%= source.id %>">Delete</a>
+    </td> 
+</tr>
+
+<% }) %>
+
+</table>

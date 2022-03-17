@@ -14,12 +14,19 @@
 
     <h1>Financial Planner</h1>
     <nav id=menu>
+        <% if(locals.currentUser){%>
+            <div class='btn btn-primary' id='welcome' >Welcome <%= locals.currentUser.firstName %>!</div>
+       <% } else{ %>
+            <div class='btn btn-primary' id='welcome' >Welcome </div>
+        <% } %>
         <a href='/' class='btn btn-outline-primary'>home</a>
 
         <a href='/about' class='btn btn-outline-primary'>about</a>
-        <a href='/portfolio' class='btn btn-outline-primary'>portfolio</a>
+
 
         <% if(locals.currentUser){%>
+            <a href='/portfolio' class='btn btn-outline-primary'>portfolio</a>
+
             <a href='/auth/logout' class='btn btn-outline-primary'>log out</a>
         <% }%>
 

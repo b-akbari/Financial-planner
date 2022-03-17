@@ -21,8 +21,8 @@ router.post('/portfolio/add/expense',portfolioCtrl.portfolio_add_expense_post)
     //delete revenue
 router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
 
-    //delete expense
-    router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
+    // //delete expense
+    // router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
 
 
 // Export to other files

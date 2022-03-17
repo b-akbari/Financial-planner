@@ -19,7 +19,7 @@ router.get('/portfolio/add/expense', portfolioCtrl.portfolio_add_expense_get)//d
 router.post('/portfolio/add/expense',portfolioCtrl.portfolio_add_expense_post)
 
     //delete revenue
-router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
+router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_revenue_delete) //delete an item from the portfolio
 
     // //delete expense
     // router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio

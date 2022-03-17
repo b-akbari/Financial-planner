@@ -4,7 +4,8 @@
   "description": "A financial planning web application useing the MEN stack",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js"
+    "test": "nodemon server.js",
+    "start": "node server"
   },
   "repository": {
     "type": "git",

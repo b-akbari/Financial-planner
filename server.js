@@ -73,7 +73,7 @@ app.use('/', portfolioRoutes);
 app.set("view engine", "ejs");
 
 // Connection with mongoDB
-mongoose.connect(process.env.mongoDBURLLocal, {
+mongoose.connect(process.env.mongoDBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },

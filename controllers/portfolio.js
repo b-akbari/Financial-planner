@@ -45,9 +45,17 @@ exports.portfolio_add_expense_post=async(req,res)=>{
 
 
 //HTTP DELETE - item
-exports.portfolio_delete_get= async(req,res)=>{
+exports.portfolio_revenue_delete= async(req,res)=>{
     let user = await User.findById(req.user.id)
     user.portfolio.revenue=user.portfolio.revenue.filter(revenue=> revenue.id!=req.params.id);
+    user.save();
+    res.redirect('/portfolio')
+}
+
+//HTTP DELETE - item
+exports.portfolio_expense_delete= async(req,res)=>{
+    let user = await User.findById(req.user.id)
+    user.portfolio.expense=user.portfolio.expense.filter(expense=> expense.id!=req.params.id);
     user.save();
     res.redirect('/portfolio')
 }

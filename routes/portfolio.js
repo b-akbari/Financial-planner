@@ -18,8 +18,12 @@ router.post('/portfolio/add/revenue',portfolioCtrl.portfolio_add_revenue_post)
 router.get('/portfolio/add/expense', portfolioCtrl.portfolio_add_expense_get)//display add expense form
 router.post('/portfolio/add/expense',portfolioCtrl.portfolio_add_expense_post)
 
-    //delete
+    //delete revenue
 router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
+
+    //delete expense
+    router.delete('/portfolio/delete/:id', portfolioCtrl.portfolio_delete_get) //delete an item from the portfolio
+
 
 // Export to other files
 module.exports = router;

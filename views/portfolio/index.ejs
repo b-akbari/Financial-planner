@@ -20,8 +20,8 @@
           <a class="btn btn-outline-dark" >
           <%= source.title %></a>
         </td>
-        <td> <%= source.monthlyInFlow %> </td>
-        <td> <%= source.annualPercentChange %>% </td>
+        <td id='rev_MIF<%=idex%>'> <%= source.monthlyInFlow %> </td>
+        <td id='rev_APC<%=idex%>'> <%= source.annualPercentChange %>% </td>
   
       <td>
         <a class="btn btn-secondary" href="/portfolio/edit/revenue?id=<%= source.id %>">Edit</a>

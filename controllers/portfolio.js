@@ -44,11 +44,18 @@ exports.portfolio_revenue_delete= async(req,res)=>{
 exports.portfolio_revenue_edit_get=async(req,res)=>{
     let user= await User.findById(req.user.id)
     console.log(user);
-    let revenueObj=user.portfolio.revenue.filter(revenue=>revenue.id=req.params.id)
+    let revenueObj=user.portfolio.revenue.filter(revenue=>revenue._id==req.query.id)[0]
     console.log(revenueObj);
     res.render('portfolio/edit/revenue',{revenue:revenueObj})
 }
 
+exports.portfolio_revenue_edit_put=async(req,res)=>{
+    let user= await User.findById(req.user.id)
+    user.portfolio.revenue=user.portfolio.revenue.filter(revenue=>revenue.id!=req.body._id);
+    user.portfolio.revenue.push(req.body)
+    user.save()
+    res.redirect('/portfolio')
+}
 
 //expense
 exports.portfolio_add_expense_get=(req,res)=>{
@@ -58,6 +65,7 @@ exports.portfolio_add_expense_post=async(req,res)=>{
     let user=await User.findById(req.user.id)
      user.portfolio.expense.push(req.body);
      user.save();
+
     //  res.redirect('/portfolio');
 }
 

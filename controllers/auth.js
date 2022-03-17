@@ -25,12 +25,12 @@ exports.auth_signup_post = (req,res)=>{
     //save User
     user.save()
     .then(()=>{
-        res.redirect('auth/login')
+        res.redirect('Auth/login')
     })
     .catch((err)=>{
         if(err.code==11000){
             req.flash('error','Email already exists');
-            res.redirect('auth/login')
+            res.redirect('Auth/login')
         } else{
             const errors = validationResult(req);
             if(!errors.isEmpty()){
@@ -38,7 +38,7 @@ exports.auth_signup_post = (req,res)=>{
                 req.flash('validationErrors', errors.errors);
             }
             // console.log(err);
-            res.redirect('/auth/signup');
+            res.redirect('/Auth/signup');
         }
     })
 }
@@ -47,14 +47,14 @@ exports.auth_signup_post = (req,res)=>{
 
 // HTTP GET -signin - to load the singin form
 exports.auth_signin_get = (req,res)=>{
-    res.render('auth/login')
+    res.render('Auth/login')
 }
 
 
 //HTTP POST - Signin to post the data
 exports.auth_signin_post = passport.authenticate('local',{
     successRedirect: '/',
-    failureRedirect:'/auth/login',
+    failureRedirect:'/Auth/login',
     failureFlash:'invalid username or password',
     successFlash: 'you have logged in successfully'
 })

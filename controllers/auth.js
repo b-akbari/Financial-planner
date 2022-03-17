@@ -9,7 +9,7 @@ const passport=require('passport');
 
 //HTTP GET - to load the signup form
 exports.auth_signup_get = (req,res)=>{
-    res.render('auth/signup');
+    res.render('Auth/signup');
 }
 
 //HTTP Post - Signup - to post the data

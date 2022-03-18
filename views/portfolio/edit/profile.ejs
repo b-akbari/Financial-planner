@@ -1,0 +1,25 @@
+<h1>Edit profile</h1>
+
+<form method="post" action="/portfolio/edit/update?_method=put">
+
+    <div class='form-group'>
+        <label>Goal</label>
+        <input class='form-control' type="number" name="goal" value="<%=user.portfolio.goal%>">
+    </div>
+
+    <div class='form-group'>Time Frame in months</label>
+        <input class='form-control' type='number' name="timeFrame" value='<%= user.portfolio.timeFrame %>'>
+    </div>
+
+
+    <div class='form-group'>
+        <label>Current Capital</label>
+        <input class='form-control' type="number" name="wallet" value="<%= user.portfolio.wallet %>">
+    </div>
+
+    <input type="hidden" name="_id" value="<%= user.id%>">
+
+
+    <button type="submit" class='btn btn-primary'>Edit Profile</button>
+
+</form>

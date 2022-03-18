@@ -18,7 +18,7 @@ this is a web based application which can take inputs such as monthly expenses a
 ![ERD](public/img/DataERD.png)
 
 
-### winner display
+### Trello board
 ![Trello board](public/img/Trello-board.png)
 
 
@@ -31,7 +31,7 @@ this is a web based application which can take inputs such as monthly expenses a
 ## Getting Started
 This is the link to the deployed application
 
-<link>
+(https://finance-planner-app.herokuapp.com)
 
 ## instructions
 create an account and then log in.

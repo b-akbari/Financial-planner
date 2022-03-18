@@ -1,22 +1,137 @@
-var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+var xValues = [];
+var yValues = [];
+
+let revenueMonthlyIn=document.querySelectorAll('.monthlyIn')
+let revArr=[];
+revenueMonthlyIn.forEach(month=>revArr.push(parseInt(month.innerText)))
+let revLength=revArr.length
+
+let AnnualPercentChange=document.querySelectorAll('.annualP')
+let revAPCArr=[]; //Revenue annual percent change array
+AnnualPercentChange.forEach(month=>revAPCArr.push(parseInt(month.innerText)))
+
+let ExpenseMonthlyOut=document.querySelectorAll('.monthlyExpense')
+let expArr=[];
+ExpenseMonthlyOut.forEach(month=>expArr.push(parseInt(month.innerText)))
+let expLength=expArr.length;
+
+let ExpenseAnnualChange=document.querySelectorAll('.monthlyExpChange')
+let expAPCArr=[];
+ExpenseAnnualChange.forEach(month=>expAPCArr.push(parseInt(month.innerText)))
+
+let months=document.querySelector('#months').innerText
+months=parseInt(months)
+let goal=document.querySelector('#GoalCap').innerText
+goal=parseInt(goal);
+let prevYVal=document.querySelector('#StartingCapital').innerText;
+prevYVal=parseInt(prevYVal);
+console.log(months,goal,prevYVal);
+
+let goalArr=[];
+
+for(i=1;i<months+1;i++){
+  xValues.push(i);
+  goalArr.push(goal);
+  let monthlySumRev=0;
+  let monthlySumExp=0
+  for(z=0;z<revLength;z++){
+    if(revArr[z]!=0){
+      if(revAPCArr[z]!=0){
+        monthlySumRev+= revArr[z]*(1+((i-1)*revAPCArr[z]/1200) ); // (APC/12)/100=apc/1200
+      } else{
+        monthlySumRev+= expArr[z];
+      }
+    }
+
+  }
+  for(z=0;z<expLength;z++){
+    if(expArr[z]!=0){
+      if(expAPCArr[z]!=0){
+        monthlySumExp+= expArr[z]*(1+((i-1)*expAPCArr[z]/1200));
+      } else{
+        monthlySumExp+= expArr[z];
+      }
+    }
+  }
+  console.log('monthly rev',monthlySumRev)
+  yValues.push(prevYVal+monthlySumRev-monthlySumExp);
+  prevYVal=yValues[i-1];
+  // console.log(yValues)
+}
+
+let maxY=Math.max(...yValues);
+maxY=Math.ceil(maxY/1000)*1000;
+
+let minY=Math.min(...yValues);
+minY=Math.floor(minY/1000)*1000;
+
+if(minY>0){
+  minY=0;
+}
+if(maxY<0){
+  maxY=0;
+}
+if(maxY==0 && minY==0){
+  maxY=goal;
+  minY=0;
+}
+console.log(maxY);
+console.log('yValues',yValues);
+console.log('months',xValues)
+
+/* <td id='Ex_M<%=idex%>' class='monthlyExpense'> <%= source.monthlyExpense %> </td>
+<td id='Ex_APC<%=idex%>' class='monthlyExpChange'> <%= source.annualPercentChange %>% </td> */
+// <td id='rev_MIF<%=idex%>' class='monthlyIn'> <%= source.monthlyInFlow %> </td>
+//         <td id='rev_APC<%=idex%>' class='annualP'> <%= source.annualPercentChange %>% </td>
+
+function getMonth() {
+  var x = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = x;
+}
+
 
 new Chart("myChart", {
   type: "line",
   data: {
     labels: xValues,
     datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
+        fill: false,
+        lineTension: 1,
+        backgroundColor: "rgba(0,0,255,1.0)",
+        borderColor: "rgba(0,0,255,0.1)",
+        data: yValues,
+        },
+        {title:'goal',
+          fill: false,
+          lineTension: 1,
+          backgroundColor: "rgba(0,255,0,1.0)",
+          borderColor: "rgba(0,255,0,0.1)",
+          data: goalArr,
+        },
+
+  
+    ]
+  }
+  ,
   options: {
-    legend: {display: false},
+    plugins:{
+      title:{
+        display:true,
+        text:'Portfolio Projection'
+      }
+    },
+    responsive:true,
+    legend: {
+      display: true
+
+    },
     scales: {
-      yAxes: [{ticks: {min: 6, max:16}}],
+      yAxes: [
+        {ticks:{min:minY, max:maxY}
+      }],
     }
   }
 });
+
+
+

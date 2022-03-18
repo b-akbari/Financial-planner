@@ -25,12 +25,12 @@ exports.auth_signup_post = (req,res)=>{
     //save User
     user.save()
     .then(()=>{
-        res.redirect('Auth/login')
+        res.redirect('/Auth/login')
     })
     .catch((err)=>{
         if(err.code==11000){
             req.flash('error','Email already exists');
-            res.redirect('Auth/login')
+            res.redirect('/Auth/login')
         } else{
             const errors = validationResult(req);
             if(!errors.isEmpty()){

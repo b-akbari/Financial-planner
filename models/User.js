@@ -42,6 +42,8 @@ const userSchema = mongoose.Schema({
         minlength:[6,'your password should be atleast 6 characters']
     },
     portfolio:{
+        goal:{type:Number,default:1000},
+        timeFrame:{type:Number,default:24},
         wallet:{type:Number, default:0},
         revenue:[revenueSchema],
         expense:[expenseSchema]

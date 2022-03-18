@@ -48,7 +48,7 @@ exports.portfolio_revenue_edit_get=async(req,res)=>{
     console.log(revenueObj);
     res.render('portfolio/edit/revenue',{revenue:revenueObj})
 }
-
+//HTTP Put
 exports.portfolio_revenue_edit_put=async(req,res)=>{
     let user= await User.findById(req.user.id)
     user.portfolio.revenue=user.portfolio.revenue.filter(revenue=>revenue.id!=req.body._id);
@@ -57,20 +57,18 @@ exports.portfolio_revenue_edit_put=async(req,res)=>{
     res.redirect('/portfolio')
 }
 
-//expense
+//HTTP Get - add expense form
 exports.portfolio_add_expense_get=(req,res)=>{
     res.render('portfolio/add/expense')
 }
+//HTTP Post - create the Expense object
 exports.portfolio_add_expense_post=async(req,res)=>{
     let user=await User.findById(req.user.id)
      user.portfolio.expense.push(req.body);
      user.save();
 
-    //  res.redirect('/portfolio');
+     res.redirect('/portfolio');
 }
-
-
-
 
 //HTTP DELETE - expense obj
 exports.portfolio_expense_delete= async(req,res)=>{
@@ -80,9 +78,46 @@ exports.portfolio_expense_delete= async(req,res)=>{
     res.redirect('/portfolio')
 }
 
-//put info into obj
-// exports.portfolio_revenue_update=async(req,res)=>{
-//     let user = await User.findById(req.user.id)
-//     user.
+//HTTP GET - Expense edit form
+exports.portfolio_expense_edit_get=async(req,res)=>{
+    let user= await User.findById(req.user.id)
+    console.log(user);
+    let expenseObj=user.portfolio.expense.filter(expense=>expense._id==req.query.id)[0]
+    console.log(expenseObj);
+    res.render('portfolio/edit/expense',{expense:expenseObj})
+}
+//HTTP Put
+exports.portfolio_expense_edit_put=async(req,res)=>{
+    let user = await User.findById(req.user.id)
+    user.portfolio.expense=user.portfolio.expense.filter(expense=>expense.id!=req.body._id);
+    user.portfolio.expense.push(req.body)
+    user.save()
+    res.redirect('/portfolio')
+}
 
-// }
+exports.portfolio_profile_edit_get=async(req,res)=>{
+    let user=await User.findById(req.user.id)
+    res.render('portfolio/edit/profile',{user})
+}
+
+//HTTP Put
+exports.portfolio_profile_edit_put= async(req,res)=>{
+
+    user= await User.findByIdAndUpdate(req.user.id);
+    // console.log(req.user);
+    user.portfolio.goal=req.body.goal;
+    user.portfolio.timeFrame=req.body.timeFrame;
+    user.portfolio.wallet=req.body.wallet;
+    user.save()
+    console.log(req.body.goal)
+
+    // user.portfolio.goal=req.body.goal;
+    // user.portfolio.timeFrame=req.body.timeFrame;
+    // user.portfolio.wallet=req.body.wallet;
+    // user.save()
+    // user.save();
+    // console.log();
+
+    res.redirect("/portfolio");
+
+}

@@ -21,8 +21,13 @@ this is a web based application which can take inputs such as monthly expenses a
 ### Trello board
 ![Trello board](public/img/Trello-board.png)
 
+### sample inputs
+![sample revenue](public/img/sampleRev.png)
 
+![sample expenses](public/img/sampleExp.png)
 
+### sample Graph based on inputs
+![graph sample](public/img/graph-sample.png)
 
 
 ## Technologies Used
@@ -39,6 +44,10 @@ once logged in you can access the portfolio page and there will be a button whic
 The trajectory of the portfolio will be calculated and displayed as a chart on the portfolio page.
 
 ## Next Steps: Planned future enhancements (icebox items).
-
-
-## Acknowledgments
+- adding assets and liabilities with weighting option for example distributing revenue to investments or a credit card
+- adding an API for motivational quotes
+- more styling, UI features
+- a page linking to other useful info regarding finances
+- making a youtube video to insert an Iframe explaining the use and walking through an example portfolio
+- adding currency toggle feature
+- adding inflation or shadow tax option to see future spending power instead of simple dollar amount

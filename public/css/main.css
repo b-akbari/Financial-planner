@@ -2,3 +2,22 @@
     /* cursor: default; */
     pointer-events: none
 }
+
+#myChart{
+    margin:0 auto;
+    width: auto;
+    max-width: 75vw;
+}
+
+body{
+    margin:20px;
+}
+
+#welcome{
+    text-align: center;
+    display:inline;
+}
+
+img{
+    margin:0 auto;
+}

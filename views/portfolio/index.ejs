@@ -1,8 +1,7 @@
 <a class='btn btn-outline-primary' href='/portfolio/add/revenue'>add revenue</a>
 <a class='btn btn-outline-primary' href='/portfolio/add/expense'>add expense</a>
 
-<h2>revenue</h2>
-<a class="btn btn-secondary" href="/portfolio/edit/revenue">Test</a>
+<br>
 <br>
 
 <table class='table table-striped'>
@@ -20,7 +19,7 @@
   </tr>
 </table>
 
-
+<h2>revenue</h2>
 <table class='table table-striped' class='positive'>
     <tr>
       <th>Title</th>
@@ -34,8 +33,7 @@
     <% user.portfolio.revenue.forEach((source,idex)=>{ %>
     <tr>
         <td> 
-          <a class="btn btn-outline-dark" >
-          <%= source.title %></a>
+          <%= source.title %>
         </td>
         <td id='rev_MIF<%=idex%>' class='monthlyIn'> <%= source.monthlyInFlow %> </td>
         <td id='rev_APC<%=idex%>' class='annualP'> <%= source.annualPercentChange %></td>
@@ -70,8 +68,7 @@
 <% user.portfolio.expense.forEach((source,idex)=>{ %>
 <tr>
     <td> 
-        <a class="btn btn-outline-dark" >
-        <%= source.title %></a>
+        <%= source.title %>
     </td>
     <td id='Ex_M<%=idex%>' class='monthlyExpense'> <%= source.monthlyExpense %> </td>
     <td id='Ex_APC<%=idex%>' class='monthlyExpChange'> <%= source.annualPercentChange %></td>
@@ -89,7 +86,7 @@
 
 </table>
 
-<canvas id="myChart" style="width:100%;max-width:700px">
+<canvas id="myChart" >
 </canvas>
 
 <script

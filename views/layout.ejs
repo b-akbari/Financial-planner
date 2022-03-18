@@ -13,7 +13,7 @@
 <body>
 
     <h1>Financial Planner</h1>
-
+    <hr>
     <% if(alerts.validationErrors){%>
         <% alerts.validationErrors.forEach((msg)=> { %>
             <div class='alert alert-danger'> <%= msg.msg %> </div>
@@ -34,9 +34,9 @@
 
     <nav id=menu>
         <% if(locals.currentUser){%>
-            <div class='btn btn-primary' id='welcome' >Welcome <%= locals.currentUser.firstName %>!</div>
+            <h3 id='welcome' >Welcome <%= locals.currentUser.firstName %>!</h3>
        <% } else{ %>
-            <div class='btn btn-primary' id='welcome' >Welcome </div>
+        <h3 id='welcome' >Welcome!</h3>
         <% } %>
         <a href='/' class='btn btn-outline-primary'>home</a>
 
@@ -62,9 +62,11 @@
 
     <hr>
     <br>
-    <h1>shared footer</h1>
 
-    
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src='../js/flash.js' ></script>
 </body>

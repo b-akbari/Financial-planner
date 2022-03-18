@@ -95,13 +95,14 @@ new Chart("myChart", {
   data: {
     labels: xValues,
     datasets: [{
+        label:'capital worth',
         fill: false,
         lineTension: 1,
         backgroundColor: "rgba(0,0,255,1.0)",
         borderColor: "rgba(0,0,255,0.1)",
         data: yValues,
         },
-        {title:'goal',
+        {label:'Goal',
           fill: false,
           lineTension: 1,
           backgroundColor: "rgba(0,255,0,1.0)",

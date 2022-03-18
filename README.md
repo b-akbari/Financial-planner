@@ -46,8 +46,11 @@ The trajectory of the portfolio will be calculated and displayed as a chart on t
 ## Next Steps: Planned future enhancements (icebox items).
 - adding assets and liabilities with weighting option for example distributing revenue to investments or a credit card
 - adding an API for motivational quotes
+- adding an API for major market indices
 - more styling, UI features
 - a page linking to other useful info regarding finances
 - making a youtube video to insert an Iframe explaining the use and walking through an example portfolio
 - adding currency toggle feature
 - adding inflation or shadow tax option to see future spending power instead of simple dollar amount
+- encryption of user portfolio's for added privacy
+- checks on inputs for valid additions

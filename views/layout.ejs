@@ -31,8 +31,8 @@
             <div class='alert alert-danger'> <%= msg %> </div>
         <%})%>
     <%}%>
-
-    <nav id=menu>
+<br>
+    <nav id=menu class="container-fluid">
         <% if(locals.currentUser){%>
             <h3 id='welcome' >Welcome <%= locals.currentUser.firstName %>!</h3>
        <% } else{ %>
@@ -43,18 +43,18 @@
 
         <% if(locals.currentUser){%>
             <a href='/portfolio' class='btn btn-outline-primary'>portfolio</a>
-
+        <div id='right-nav'>
             <a href='/auth/logout' class='btn btn-outline-primary'>log out</a>
-        <% }%>
-
-        <% if(!locals.currentUser){%>
-        <a href='/auth/signup' class='btn btn-outline-primary'>create account</a>
-        <a href='/auth/login' class='btn btn-outline-primary'>log in</a>
-        <% }%>
-
-
-
+            <% }%>
+    
+            <% if(!locals.currentUser){%>
+            <a href='/auth/signup' class='btn btn-outline-primary'>create account</a>
+            <a href='/auth/login' class='btn btn-outline-primary'>log in</a>
+            <% }%>
+        </div>
     </nav>
+    <br>
+
     <hr>
     <br>
 

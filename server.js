@@ -52,22 +52,11 @@ app.use(function(req,res,next){
 const indexRoute = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const portfolioRoutes = require('./routes/portfolio');
-const { initialize } = require("./helper/ppConfig");
-
 
 //mount routes
 app.use('/', indexRoute);
 app.use('/', authRoutes);
-// app.all('*', loadUser);
 app.use('/', portfolioRoutes);
-
-
-
-
-
-
-
-
 
 //look into views folder for EJS files
 app.set("view engine", "ejs");

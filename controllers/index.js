@@ -1,7 +1,4 @@
-
-// API's
-
-// HTTP GET - Index
+//HTTP GET API - Index
 exports.index_get = (req, res) => {
     res.render("home/index", {welcomeMessage: "Welcome"});
 }

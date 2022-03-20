@@ -14,13 +14,8 @@ exports.auth_signup_get = (req,res)=>{
 
 //HTTP Post - Signup - to post the data
 exports.auth_signup_post = (req,res)=>{
-    // console.log(req.body);
-
     let user= new User(req.body);
-    // console.log(req.body);
-    console.log('user',user)
     let hash=bcrypt.hashSync(req.body.password, salt);
-    console.log(hash)
     user.password=hash;
     //save User
     user.save()
@@ -37,19 +32,15 @@ exports.auth_signup_post = (req,res)=>{
                 // res.status(400).json({errors:errors.array()});
                 req.flash('validationErrors', errors.errors);
             }
-            // console.log(err);
             res.redirect('/Auth/signup');
         }
     })
 }
 
-
-
 // HTTP GET -signin - to load the singin form
 exports.auth_signin_get = (req,res)=>{
     res.render('Auth/login')
 }
-
 
 //HTTP POST - Signin to post the data
 exports.auth_signin_post = passport.authenticate('local',{
@@ -58,7 +49,6 @@ exports.auth_signin_post = passport.authenticate('local',{
     failureFlash:'invalid username or password',
     successFlash: 'you have logged in successfully'
 })
-
 
 //HTTP GET - Logout - to logout the user
 exports.auth_logout_get = (req,res)=>{

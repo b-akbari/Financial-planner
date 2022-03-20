@@ -25,7 +25,6 @@ let goal=document.querySelector('#GoalCap').innerText
 goal=parseInt(goal);
 let prevYVal=document.querySelector('#StartingCapital').innerText;
 prevYVal=parseInt(prevYVal);
-console.log(months,goal,prevYVal);
 
 let goalArr=[];
 
@@ -53,10 +52,8 @@ for(i=1;i<months+1;i++){
       }
     }
   }
-  console.log('monthly rev',monthlySumRev)
   yValues.push(prevYVal+monthlySumRev-monthlySumExp);
   prevYVal=yValues[i-1];
-  // console.log(yValues)
 }
 
 let maxY=Math.max(...yValues);
@@ -75,14 +72,6 @@ if(maxY==0 && minY==0){
   maxY=goal;
   minY=0;
 }
-console.log(maxY);
-console.log('yValues',yValues);
-console.log('months',xValues)
-
-/* <td id='Ex_M<%=idex%>' class='monthlyExpense'> <%= source.monthlyExpense %> </td>
-<td id='Ex_APC<%=idex%>' class='monthlyExpChange'> <%= source.annualPercentChange %>% </td> */
-// <td id='rev_MIF<%=idex%>' class='monthlyIn'> <%= source.monthlyInFlow %> </td>
-//         <td id='rev_APC<%=idex%>' class='annualP'> <%= source.annualPercentChange %>% </td>
 
 function getMonth() {
   var x = document.getElementById("myNumber").value;

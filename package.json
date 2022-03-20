@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/b-akbari/Financial-planner/issues"
   },
-  "homepage": "https://github.com/b-akbari/Financial-planner#readme",
+  "homepage": "https://finance-planner-app.herokuapp.com",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chart.js": "^3.7.1",

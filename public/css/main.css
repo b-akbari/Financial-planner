@@ -15,7 +15,7 @@ body{
 
 body{
     margin:0;
-    padding:1em;
+    padding:0em;
 }
 
 #welcome{
@@ -69,4 +69,17 @@ howto>p{
     justify-content: right;
     display: inline;
     background-color: whitesmoke;
+}
+
+#head-background{
+    background-color: #0A2463;
+    margin:1em auto;
+}
+
+#pageHeader{
+    background-color: white;
+    margin:0 auto;
+    padding:10px;
+    width: fit-content;
+    justify-content: center;
 }

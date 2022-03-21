@@ -25,7 +25,7 @@ body{
 
 .samples{
     background-color: #0A2463;
-    padding:1em;
+    padding:1rem;
     border-radius:10px;
     text-align: center;
 }
@@ -53,32 +53,53 @@ body{
 }
 
 howto>p{
-    border:4px solid #0A2463;
-    padding:20px;
+    border:.5rem solid #0A2463;
+    padding:1.5vw;
     border-radius:10px;
-    margin:0 auto;
-    /* text-align: center; */
+    margin:1.5vw;
+}
+#intro{
+    padding:10px;
+    margin:1.5vw;
 }
 
 #menu{
-    border-radius: 5px solid black;
-    /* background-color: gray; */
+    padding: .5rem;
+    background-color: aliceblue;
+    border:0px solid gold;
+    border-bottom: 0.25rem solid gold;
 }
 
 #right-nav{
     justify-content: right;
     display: inline;
-    background-color: whitesmoke;
+    background-color: aliceblue;
+    /* position: absolute; */
+    /* justify-content: right; */
+    float: right;
+    right: 1em;
 }
 
 #head-background{
     background-color: #0A2463;
-    margin:1em auto;
+    /* margin:1em auto; */
+    padding:1em;
+}
+#menu>a{
+    background-color: aliceblue;
+}
+
+#welcome{
+    justify-content: center;
+    margin-right: 2rem;
+    font-size: 1.2rem;
 }
 
 #pageHeader{
-    background-color: white;
+    background-color: aliceblue;
     margin:0 auto;
+    border-radius: 10px;
+    border: 0.25rem solid gold;
     padding:10px;
     width: fit-content;
     justify-content: center;

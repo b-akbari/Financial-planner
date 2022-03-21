@@ -13,10 +13,10 @@ const PORT = process.env.PORT;
 // Initialize Express app
 const app = express();
 
-app.use(methodOverride('_method'));
-
 //see views folder for layout
 app.use(expressLayouts);
+
+app.use(methodOverride('_method'));
 
 //check public for static files
 app.use(express.static( "public" ) );

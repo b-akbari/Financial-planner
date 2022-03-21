@@ -21,10 +21,11 @@ exports.portfolio_add_revenue_get=(req,res)=>{
     User.find()
     res.render('portfolio/add/revenue');
 }
-
+//HTTP POST - revenue obj
 exports.portfolio_add_revenue_post=async(req,res)=>{
     let user=await User.findById(req.user.id)
     user.portfolio.revenue.push(req.body);
+    console.log(req.body)
     user.save();
     res.redirect('/portfolio')
 }

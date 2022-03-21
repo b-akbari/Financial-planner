@@ -5,13 +5,13 @@ const bcrypt=require('bcrypt');
 const revenueSchema = mongoose.Schema({
     title: String,
     monthlyInFlow: Number,
-    annualPercentChange:Number //annual percent change
+    annualPercentChange:{type:Number, default:0} //annual percent change
 })
 
 const expenseSchema = mongoose.Schema({
     title: String,
     monthlyExpense: Number,
-    annualPercentChange:Number
+    annualPercentChange:{type:Number, default:0}
 })
 
 
@@ -20,19 +20,19 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength:[3,'first name must be more than 3 characters'],
-        maxlength: [99, "too many characters! chill!"],
+        maxlength: [99, "too many characters!"],
     },  
     lastName: {
-    type: String,
-    required: true,
-    minlength:[3,'first name must be more than 3 characters'],
-    maxlength: [99, "too many characters! chill!"],
+        type: String,
+        required: true,
+        minlength:[3,'first name must be more than 3 characters'],
+        maxlength: [99, "too many characters!"],
     },
     emailAddress: {
         type: String,
         required: true,
         minlength:[3,'first name must be more than 3 characters'],
-        maxlength: [99, "too many characters! chill!"],
+        maxlength: [99, "too many characters!"],
         lowercase: true,//converted to lowercase
         unique: true,//if this exists, it will throw an exception
     },

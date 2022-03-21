@@ -28,6 +28,8 @@ prevYVal=parseInt(prevYVal);
 
 let goalArr=[];
 
+console.log(revAPCArr);
+
 for(i=1;i<months+1;i++){
   xValues.push(i);
   goalArr.push(goal);
@@ -38,10 +40,9 @@ for(i=1;i<months+1;i++){
       if(revAPCArr[z]!=0){
         monthlySumRev+= revArr[z]*(1+((i-1)*revAPCArr[z]/1200) ); // (APC/12)/100=apc/1200
       } else{
-        monthlySumRev+= expArr[z];
+        monthlySumRev+= revArr[z];
       }
     }
-
   }
   for(z=0;z<expLength;z++){
     if(expArr[z]!=0){
@@ -55,6 +56,7 @@ for(i=1;i<months+1;i++){
   yValues.push(prevYVal+monthlySumRev-monthlySumExp);
   prevYVal=yValues[i-1];
 }
+
 
 let maxY=Math.max(...yValues);
 maxY=Math.ceil(maxY/1000)*1000;

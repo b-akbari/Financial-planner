@@ -10,7 +10,7 @@
     <th>Capital</th>
     <th>Goal</th>
     <th>Time Frame (months)</th>
-    <th>Edit</th>
+    <th>Edit Status</th>
   </tr>
   <tr>
     <td id='StartingCapital'><%=user.portfolio.wallet%></td>
@@ -27,8 +27,8 @@
       <th>monthly revenue</th>
       <th>Annual % change</th>
   
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Edit Revenue</th>
+      <th>Delete Revenue</th>
     </tr>
   
     <% user.portfolio.revenue.forEach((source,idex)=>{ %>
@@ -44,7 +44,7 @@
       </td>
       
       <td>
-        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/revenue/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
+        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/revenue/<%=source.id%>?_method=DELETE">Delete</form>
       </td> 
     </tr>
   
@@ -62,8 +62,8 @@
     <th>monthly expense</th>
     <th>Annual % change</th>
 
-    <th>Edit</th>
-    <th>Delete</th>
+    <th>Edit Expense</th>
+    <th>Delete Expense</th>
 </tr>
 
 <% user.portfolio.expense.forEach((source,idex)=>{ %>
@@ -79,7 +79,7 @@
     </td>
     
     <td>
-        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/expense/<%=source.id%>?_method=DELETE"><button class="btn btn-danger">Delete</button></form>
+        <form  class="btn btn-danger" method='POST' action="/portfolio/delete/expense/<%=source.id%>?_method=DELETE">Delete</form>
     </td> 
 </tr>
 

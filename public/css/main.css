@@ -1,10 +1,75 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+)
+@include media-breakpoint-up(sm) { ... }
+@include media-breakpoint-up(md) { ... }
+@include media-breakpoint-up(lg) { ... }
+@include media-breakpoint-up(xl) { ... }
+@include media-breakpoint-up(xxl) { ... }
+
 body{
     background-color:aliceblue ;
+    margin:0;
+    padding:0em;
 }
 
-#welcome{
-    /* cursor: default; */
-    pointer-events: none
+#head-background{
+    background-color: black;
+    /* margin:1em auto; */
+    padding:1em;
+}
+#pageHeader{
+    background-color: aliceblue;
+    margin:0 auto;
+    border-radius: 10px;
+    border: 0.25rem solid gold;
+    padding:10px;
+    width: fit-content;
+    justify-content: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 2rem;
+}
+#head-background{
+    background-color:#02103E;
+    /* margin:1em auto; */
+    padding:1em;
+}
+links{
+    /* margin:0 auto */
+    display: flex;
+    margin:0 auto;
+}
+links>a{
+    display: flex;
+    display: inline-block;
+    margin:0 auto;
+    width: 5vh;
+    height:5vh;
+    bottom: 2vh;
+    /* justify-content: center; */
+    background-size: 5vh;
+    background-repeat: no-repeat;
+
+}
+#linkedin{
+    background-image:url(/img/linkedin-logo-white-black-png.png);
+    background-position: center;
+
+}
+#github{
+    background-image:url(/img/github_logo.png);
+    background-position: right;
+}
+/* links>a>img{
+    margin:0 auto;
+    display:inline;
+    width:100px;
+    justify-content: center; */
 }
 
 #myChart{
@@ -13,10 +78,6 @@ body{
     max-width: 75vw;
 }
 
-body{
-    margin:0;
-    padding:0em;
-}
 
 #welcome{
     text-align: center;
@@ -24,17 +85,17 @@ body{
 }
 
 .samples{
-    background-color: #0A2463;
+    background-color: #02103E;
     padding:1rem;
     border-radius:10px;
     text-align: center;
 }
 
-#sample-container{
+/* #sample-container{
     /* padding:2em; */
     /* margin:1em; */
     /* justify-content: left; */
-}
+} */
 
 .sample-img{
     border-radius:10px;
@@ -53,7 +114,7 @@ body{
 }
 
 howto>p{
-    border:.5rem solid #0A2463;
+    border:.5rem solid #02103E;
     padding:1.5vw;
     border-radius:10px;
     margin:1.5vw;
@@ -74,33 +135,24 @@ howto>p{
     justify-content: right;
     display: inline;
     background-color: aliceblue;
-    /* position: absolute; */
-    /* justify-content: right; */
     float: right;
     right: 1em;
 }
 
-#head-background{
-    background-color: #0A2463;
-    /* margin:1em auto; */
-    padding:1em;
-}
+
 #menu>a{
-    background-color: aliceblue;
+    width: fit-content;
 }
 
 #welcome{
     justify-content: center;
     margin-right: 2rem;
     font-size: 1.2rem;
+    display:none;
 }
+@media (min-width:576px){
+    #welcome{
+        display:inline;
+    }
 
-#pageHeader{
-    background-color: aliceblue;
-    margin:0 auto;
-    border-radius: 10px;
-    border: 0.25rem solid gold;
-    padding:10px;
-    width: fit-content;
-    justify-content: center;
 }

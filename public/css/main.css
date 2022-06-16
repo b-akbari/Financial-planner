@@ -69,7 +69,10 @@ links>a{
     margin:0 auto;
     display:inline;
     width:100px;
-    justify-content: center; */
+    justify-content: center;
+ } */
+#body-wrapper{
+    padding:3vw;
 }
 
 #myChart{
@@ -85,10 +88,13 @@ links>a{
 }
 
 .samples{
+    display: flex;
+    flex-direction: column;
     background-color: #02103E;
     padding:1rem;
     border-radius:10px;
     text-align: center;
+    justify-content:space-between;
 }
 
 /* #sample-container{

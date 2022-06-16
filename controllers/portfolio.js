@@ -35,6 +35,7 @@ exports.portfolio_revenue_delete= async(req,res)=>{
     let user = await User.findById(req.user.id)
     user.portfolio.revenue=user.portfolio.revenue.filter(revenue=> revenue.id!=req.params.id);
     user.save();
+    console.log('hit')
     res.redirect('/portfolio')
 }
 
@@ -73,6 +74,7 @@ exports.portfolio_expense_delete= async(req,res)=>{
     user.save();
     res.redirect('/portfolio')
 }
+
 
 //HTTP GET - Expense edit form
 exports.portfolio_expense_edit_get=async(req,res)=>{
